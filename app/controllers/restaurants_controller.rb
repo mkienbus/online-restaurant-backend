@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+    #skip_before_action :authorize 
 
     #GET /restaurants route
     #need restaurant seed data
