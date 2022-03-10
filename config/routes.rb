@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :users, only: [:create, :index, :show]
-  
+
+  #do I need more resources on restaurants? Users can't add or delete them, will come from seed
+  resources :restaurants, only: [:index, :show]
+
 end
