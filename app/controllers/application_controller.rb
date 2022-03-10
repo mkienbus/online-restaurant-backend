@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    include ApplicationController::Cookies
+    include ActionController::Cookies
 
     #before_action :authorize
 

@@ -8,13 +8,14 @@ Bundler.require(*Rails.groups)
 
 module OnlineRestaurantBackend
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
-
     #cookies and sessions middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
 
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.0
+
+  
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
