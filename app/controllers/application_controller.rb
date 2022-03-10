@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-    #include ApplicationController::Cookies
-    
+    include ApplicationController::Cookies
+
     #before_action :authorize
 
     private
