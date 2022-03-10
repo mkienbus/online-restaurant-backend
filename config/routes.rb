@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  get '/me', to: 'users#show'
+
   resources :users, only: [:create, :index, :show]
 
   #do I need more resources on restaurants? Users can't add or delete them, will come from seed
