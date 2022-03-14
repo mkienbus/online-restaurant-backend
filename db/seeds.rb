@@ -6,11 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "seeding db..."
-
 users = User.create([
     {username: 'mkienbus', password: "test"},
     {username: 'jsmith', password: "test"}
 ])
-
-puts "seeding complete!"

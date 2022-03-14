@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     #skip_before_acton, only: create
+    skip_before_action
 
     # GET /users route
     def index
