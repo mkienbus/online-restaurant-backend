@@ -15,9 +15,7 @@ class SessionsController < ApplicationController
 
     #DELETE /logout route
     def destroy
-        def destroy
-            session.delete :user_id
-            head :no_content
-        end
+        session.delete :user_id
+        head :no_content
     end
 end
