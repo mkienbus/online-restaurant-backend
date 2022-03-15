@@ -7,38 +7,20 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'open-uri'
+require 'faker'
 
-users = User.create([
-    {username: 'mkienbus', password: "test"},
-    {username: 'jsmith', password: "test"}
+User.create([
+    {username: 'mkienbus', password: "test"}
 ])
 
-Restaurant.delete_all
-zip = "10006" # Set a search zip
-returns_per_term = 5 # How many restaurants to return per query
-owner = Owner.first # Need an owner
-terms = ["burgers", "italian", "deli", "coffee", "cuban", "japanese", "steakhouse"] # Terms to search for, should all names of categories
-terms.each do |term|
-	# Query the Yahoo Local API
-    url = "http://local.yahooapis.com/LocalSearchService/V3/localSearch?appid=YahooDemo&query=#{term}&zip=#{zip}&results=#{returns_per_term}&output=json"
-	json = open(url)
-    #Parse the JSON into a hash
-	parsed = ActiveSupport::JSON.decode(json)
-	parsed['ResultSet']['Result'].each do |result|
-		address1 = result['Address'] 
-		address1 = "Unknown" if address1.empty? # Some address fields are empty, validations will complain otherwise
-		restaurant = owner.restaurants.create!({
-			name: result['Title'],
-			description: "Replace Me",
-			address1:  address1,
-			city: result['City'],
-			state: result['State'],
-			zip: zip,
-			phone: result['Phone']
-            # If you store the address as a single string instead of separate address1/address2/city/state/zip fields
-            # Use the following code instead
-            # address: "#{Result['Address']}\nResult['City'], Result['State'] #{zip}"
-		})
-		restaurant.categories << Category.where({name: term}).first
-	end
+# generate 20 users
+(1..20).each do |id|
+    User.create!(
+# each user is assigned an id from 1-20
+        username: Faker::Name.unique.first_name,
+        #email: Faker::Internet.email,
+# issue each user the same password
+        password: "password", 
+        password_confirmation: "password"
+    )
 end
