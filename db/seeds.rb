@@ -18,10 +18,10 @@ User.create([
     User.create!(
 # each user is assigned an id from 1-20
         username: Faker::Name.unique.first_name,
-        #email: Faker::Internet.email,
+        #email: Faker::Internet.email, may want to include later with email notifications
 # issue each user the same password
-        password: "password", 
-        password_confirmation: "password"
+        password: "test", 
+        password_confirmation: "test"
     )
 end
 
@@ -32,3 +32,4 @@ end
     )
 end
 
+puts "database seeded!"
