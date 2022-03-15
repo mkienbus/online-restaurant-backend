@@ -24,3 +24,11 @@ User.create([
         password_confirmation: "password"
     )
 end
+
+(1..20).each do |id|
+    Restaurant.create!(
+        name: Faker::Restaurant.unique.name,
+        address: Faker::Address.full_address
+    )
+end
+
