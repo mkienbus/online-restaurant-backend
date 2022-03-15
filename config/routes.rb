@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :index, :show]
 
-  #do I need more resources on restaurants? Users can't add or delete them, will come from seed
   resources :restaurants, only: [:index, :show]
 
   post '/login', to: 'sessions#create'
