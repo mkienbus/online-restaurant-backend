@@ -18,6 +18,9 @@ gem "puma", "~> 5.0"
 #bcrypt has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#to open URLs as info (i'm using this for seeding)
+gem 'open-uri'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
