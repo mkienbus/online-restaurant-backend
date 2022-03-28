@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show]
 
+  resources :reservations, only: [:index, :create, :update, :destroy]
+
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
