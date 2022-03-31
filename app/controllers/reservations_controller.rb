@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
     
     #GET to /reservations route for index
     def index 
-        binding.irb
+        #binding.irb
         #@current_user.reservations to find all reservations for that logged in user
         reservations = Reservation.all
         render json: reservations
