@@ -1,11 +1,10 @@
 class ReservationsController < ApplicationController
-    skip_before_action :authorize
+    before_action :authorize
     
     #GET to /reservations route for index
     def index 
-        #binding.irb
         #@current_user.reservations to find all reservations for that logged in user
-        reservations = Reservation.all
+        reservations = @current_user.reservations
         render json: reservations
     end
 

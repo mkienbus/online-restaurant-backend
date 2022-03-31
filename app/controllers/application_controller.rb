@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
 
     before_action :authorize
 
+
     private
 
     def authorize
