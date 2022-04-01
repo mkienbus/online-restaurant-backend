@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
     def index 
         #@current_user.reservations to find all reservations for that logged in user
         reservations = @current_user.reservations
-        render json: reservations
+        render json: reservations, include: [:restaurant]
     end
 
     #POST to /reservations route for create

@@ -10,7 +10,8 @@ require 'open-uri'
 require 'faker'
 
 User.create([
-    {username: 'mkienbus', password: "test"}
+    {username: 'mkienbus', password: "test"},
+    {username: 'test', password: "test"}
 ])
 
 # generate 20 users
@@ -25,11 +26,18 @@ User.create([
     )
 end
 
+#generate 20 retaurants
 (1..20).each do |id|
     Restaurant.create!(
         name: Faker::Restaurant.unique.name,
         address: Faker::Address.full_address
     )
 end
+
+#generate reservations for mkienbus id:1 and test id:2
+Reservation.create([
+    {user_id: 1, restaurant_id: 1, reservation_date: "12/25/2022"},
+    {user_id: 2, restaurant_id: 2, reservation_date: "1/1/2023"}
+])
 
 puts "database seeded!"
