@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
     #POST to /reservations route for create
     def create
         reservation = Reservation.create(reservation_params)
+        # UserMailer.with(user: @current_user).reservation_confirmation_email.deliver_now
         render json: reservation, status: :created
     end
 

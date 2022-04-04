@@ -17,12 +17,16 @@ class UsersController < ApplicationController
         user = User.create(user_params)
         session[:user_id] = user.id
 
-        if user.valid?
-        render json: user, status: :created
+            if user.valid?
+                render json: user, status: :created
+                UserMailer.with(user: @user).welcome_email.deliver_later
 
-        else
-            render json: {errors: user.errors.full_messages }, status: :unprocessable_entity
-        end
+                # format.html { redirect_to(@user, notice: 'User was successfully created.') }
+                # format.json { render json: @user, status: :created, location: @user }
+
+            else
+                render json: {errors: user.errors.full_messages }, status: :unprocessable_entity
+            end
     end
 
     private
