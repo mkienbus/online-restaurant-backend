@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
             if user.valid?
                 render json: user, status: :created
-                UserMailer.with(user: @user).welcome_email.deliver_later
+                # UserMailer.with(user: @user).welcome_email.deliver_later
 
                 # format.html { redirect_to(@user, notice: 'User was successfully created.') }
                 # format.json { render json: @user, status: :created, location: @user }

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:index, :create, :update, :destroy]
 
+  resources :favorites, only: [:index, :create, :update, :destroy]
+
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
