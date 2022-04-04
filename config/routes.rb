@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :index, :show]
 
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show, :update]
 
   resources :reservations, only: [:index, :create, :update, :destroy]
 

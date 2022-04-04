@@ -13,4 +13,16 @@ class RestaurantsController < ApplicationController
         render json: restaurant
     end
 
+    #PATCH /restaurants/:id route to update
+    def update
+        restaurant = Restaurant.find(params[:id])
+        restaurant.update(restaurant_params)
+        render json: restaurant
+    end
+
+    private
+    def restaurant_params
+        params.require(:restaurant).permit(:favorite, :user_id)
+    end
+
 end
