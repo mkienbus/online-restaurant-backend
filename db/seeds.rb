@@ -37,6 +37,7 @@ end
 #generate reservations for mkienbus id:1 and test id:2
 Reservation.create([
     {user_id: 1, restaurant_id: 1, reservation_date: "12/25/2022"},
+    {user_id: 1, restaurant_id: 3, reservation_date: "5/19/2022"},
     {user_id: 2, restaurant_id: 2, reservation_date: "1/1/2023"}
 ])
 

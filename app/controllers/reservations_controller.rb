@@ -21,7 +21,9 @@ class ReservationsController < ApplicationController
 
     #DELETE to /reservations route for destroy
     def destroy
-
+        reservation = Reservation.find(params[:id])
+        reservation.destroy
+        head :no_content
     end
 
     private
