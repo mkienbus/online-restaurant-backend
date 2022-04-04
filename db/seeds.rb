@@ -10,7 +10,7 @@ require 'open-uri'
 require 'faker'
 
 User.create([
-    {username: 'mkienbus', password: "test"},
+    {username: 'mkienbus', password: "test", email: "canonbusch@hotmail.com"},
     {username: 'test', password: "test"}
 ])
 
