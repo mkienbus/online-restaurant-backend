@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+    skip_before_action :authorize
 
     #GET route for favorites, using custom favorite method from restaurant model
     def favorites
@@ -8,7 +9,7 @@ class FavoritesController < ApplicationController
 
     def index
         favorites = Favorite.all
-        render json: favorites
+        render json: favorites, include: [:restaurant]
     end
 
     def create
