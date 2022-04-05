@@ -1,7 +1,13 @@
 class FavoritesController < ApplicationController
 
+    #GET route for favorites, using custom favorite method from restaurant model
+    def favorites
+        restaurants = Restaurant.favorite
+        render json: restaurants
+    end
+
     def index
-        favorites = @current_user.favorites
+        favorites = Favorite.all
         render json: favorites
     end
 
@@ -25,6 +31,6 @@ class FavoritesController < ApplicationController
     private
 
     def favorite_params
-        params.permit(:user_id, :favorite)
+        params.permit(:user_id, :restaurant_id)
     end
 end
